@@ -1,0 +1,22 @@
+diff --git a/cmd/gomobile/install.go b/cmd/gomobile/install.go
+index 05ff14b..beb7e52 100644
+--- a/cmd/gomobile/install.go
++++ b/cmd/gomobile/install.go
+@@ -8,7 +8,7 @@
+ 	"fmt"
+ 	"os"
+ 	"os/exec"
+-	"path/filepath"
++	"path"
+ 	"strings"
+ )
+ 
+@@ -43,7 +43,7 @@
+ 		`adb`,
+ 		`install`,
+ 		`-r`,
+-		androidPkgName(filepath.Base(pkg.Dir))+`.apk`,
++		androidPkgName(path.Base(pkg.PkgPath))+`.apk`,
+ 	)
+ 	c.Stdout = os.Stdout
+ 	c.Stderr = os.Stderr
